@@ -1,0 +1,22 @@
+#######################################
+## atmega328 on a breadboard (with 16MHz crystal)
+## Settings extracted from "Arduino Duemilanove or Diecimila"
+
+atmega328_bb.name="atmega328 on a breadboard (with 16MHz crystal)"
+
+atmega328_bb.build.core=arduino
+atmega328_bb.build.mcu=atmega328p
+atmega328_bb.build.f_cpu=16000000L
+atmega328_bb.build.variant=standard
+
+atmega328_bb.bootloader.low_fuses=0xFF
+atmega328_bb.bootloader.lock_bits=0x0F
+atmega328_bb.bootloader.unlock_bits=0x3F
+
+atmega328_bb.bootloader.tool.default=avrdude
+atmega328_bb.bootloader.tool=avrdude
+
+atmega328_bb.upload.maximum_size=30720
+atmega328_bb.upload.speed=19200
+atmega328_bb.upload.protocol=arduino
+
