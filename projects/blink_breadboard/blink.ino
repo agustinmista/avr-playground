@@ -1,4 +1,4 @@
-#define LED PD7
+#define LED 9
 
 void setup() {
 	pinMode(LED, OUTPUT);
