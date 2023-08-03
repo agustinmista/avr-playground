@@ -1,13 +1,13 @@
-# blink_breadboard
+# fade_bb
 
-* Description: the hello world of embedded programming
+* Description: a heartbeat LED
 
 * Board: atmega328 on a breadboard (with 16MHz crystal)
 
 * Programmer: ArduinoISP
 
 * Extra components:
-  + LED connected to pin 13 (PD7)
+  + LED connected to pin 15 (PB1)
 
 * Build steps:
 
