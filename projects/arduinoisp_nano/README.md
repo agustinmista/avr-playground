@@ -1,6 +1,6 @@
 # arduinoisp_nano
 
-* Description: vanilla ArduinoISP sketch with functions reordered
+* Description: improved ArduinoISP sketch
 
 * Board: Arduino Nano (ATmega328p with old bootloader)
 
