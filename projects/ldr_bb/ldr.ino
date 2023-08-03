@@ -9,6 +9,6 @@ void setup()  {
 }
 
 void loop()  {
-  brightness = map(analogRead(LDR), 0, 200, 255, 0);
+  brightness = map(analogRead(LDR), 0, 500, 255, 0);
   analogWrite(LED, brightness);
 }
