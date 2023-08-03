@@ -3,7 +3,7 @@
 
 	"image": "mcr.microsoft.com/devcontainers/base:jammy",
 
-	"runArgs": ["--device", "/dev/ttyUART0"],
+	"runArgs": ["--device", "/dev/ttyFTDI"],
 
 	"postCreateCommand": ".devcontainer/postCreate.sh",
 

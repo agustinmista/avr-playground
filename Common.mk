@@ -2,7 +2,7 @@
 ## Definitions common to all projects
 
 # The serial port mapped to the DevContainer
-MONITOR_PORT := /dev/ttyUART0
+MONITOR_PORT := /dev/ttyFTDI
 
 # Arduino options
 ARDUINO_DIR := /usr/share/arduino
