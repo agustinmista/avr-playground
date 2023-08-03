@@ -654,6 +654,12 @@ void setup() {
 
 void loop() {
 
+  // React to input messages
+  if (Serial.available()) {
+    uint8_t cmd = get_serial_char();
+    dispatch_stk_command(cmd);
+  }
+
   // Update the heartbeat LED
   heartbeat_step();
 
@@ -663,9 +669,4 @@ void loop() {
   // Is pmode active?
   set_led_pmode(pmode);
 
-  // React to input messages
-  if (Serial.available()) {
-    uint8_t cmd = get_serial_char();
-    dispatch_stk_command(cmd);
-  }
 }
