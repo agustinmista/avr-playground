@@ -1,18 +1,18 @@
 # To run this script, you might need to run from the ouside
 # Set-ExecutionPolicy RemoteSigned
 
-# Attach the FTDI device from Win11 to WSL2
-usbipd wsl attach --distribution='Ubuntu-22.04' -i 0403:6001
-
 # Inside WSL2:
 # 1. Create a udev rule to bind the FTDI device to /dev/ttyFTDI
 # 2. Restart the udev service
-# 3. Trigger the udev rules
-# 4. List /dev/tty*
+Write-Output "*** [WSL2] Installing udev rule for FTDI chip ..."
 wsl --distribution Ubuntu-22.04 -- sudo bash -c 'cat > /etc/udev/rules.d/99-usb-serial.rules << EOT
 SUBSYSTEM==\"tty\", ATTRS{idVendor}==\"0403\", ATTRS{idProduct}==\"6001\", SYMLINK+=\"ttyFTDI\", MODE=\"0666\"
-EOT' `&`& sudo service udev restart `&`& sudo udevadm trigger `&`& ls /dev/tty*
+EOT'
 
-# Let's not close the terminal right away
-Write-Host "Press any key to close..."
-$Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
+Write-Output "*** [WSL2] Restarting the udev service ..."
+wsl --distribution Ubuntu-22.04 -- sudo service udev restart
+
+# Attach the FTDI device from Win11 to WSL2
+# This keeps the terminal open and auto-reattaches the device if we disconnect it
+Write-Output "*** [WIN11] Starting USBIPD-WIN in auto-attach mode ..."
+usbipd wsl attach --auto-attach --distribution='Ubuntu-22.04' -i 0403:6001
