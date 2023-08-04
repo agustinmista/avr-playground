@@ -12,19 +12,11 @@ We want to map the FTDI chip path to a stable device name to be passed to the De
 
    https://github.com/dorssel/usbipd-win/releases
 
-2. Attach the FTDI serial chip to the WSL2 instance:
+2. Allow running scripts in PowerShell:
 
-   ```powershell
-   C:\> usbipd wsl attach --distribution='Ubuntu-22.04' -i 0403:6001
    ```
-
-3. Inside WSL2, create a udev rule to symlink the mapped device to `/dev/ttyFTDI`
-
-   ```bash
-   $ sudo bash -c 'cat > /etc/udev/rules.d/99-usb-serial.rules << EOT
-   SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", SYMLINK+="ttyFTDI" MODE="0666"
-   EOT'
-   $ sudo service udev restart
+   $ Set-ExecutionPolicy RemoteSigned
    ```
+3. Download and run `AttachFTDIDeviceToWSL2.ps1`
 
 NOTE: these steps will need some tweaks if there are multiple FTDI serial chips connected at the same time.
