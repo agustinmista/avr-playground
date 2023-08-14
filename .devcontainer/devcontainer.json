@@ -1,12 +1,7 @@
 {
 	"name": "AVR Playground",
-
 	"image": "mcr.microsoft.com/devcontainers/base:jammy",
-
-	"runArgs": ["--device", "/dev/ttyFTDI"],
-
-	"postCreateCommand": ".devcontainer/postCreate.sh",
-
+	"postCreateCommand": "./scripts/setup.sh",
 	"customizations": {
 		"vscode": {
 			"extensions": [
@@ -14,5 +9,4 @@
 			]
 		}
 	}
-
 }
